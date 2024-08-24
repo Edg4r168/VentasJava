@@ -1,0 +1,71 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout">
+
+<head>
+    <link rel="stylesheet" th:href="@{/products/css/edit.css}" />
+    <title>Actualizar producto</title>
+</head>
+
+    <div layout:fragment="content">
+        <h1 class="section-title">Actualizar producto</h1>
+        <section class="section-edit">
+            <form th:action="@{/products/save}" th:object="${product}" method="post">
+                <input type="hidden" name="id" th:value="${product.id}">
+                <div class="image-container">
+                    <img
+                            id="preview"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg6kEVPwep5Xls8KBfg6Ja7Oi2whjPUwMIjA&s"
+                            alt="Image Preview"
+                    />
+
+                    <label for="file-upload" class="image-upload">
+                        <input type="file" name="imagen" id="file-upload" />
+                        <svg
+                                class="icon-upload"
+                                focusable="false"
+                                aria-hidden="true"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                        >
+                            <path
+                                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
+                            ></path>
+                        </svg>
+
+                        <span id="name-image">Selecionar imagen</span>
+                    </label>
+                </div>
+
+                <div class="fields-container">
+                    <label for="name" title="Nombre del producto">
+                        <input type="text" th:value="${product.name}" id="name" name="name" />
+                    </label>
+
+                    <label for="description" title="Descripción del producto">
+                    <textarea type="text" id="description" name="description" th:text="${product.description}">
+                    </textarea>
+                    </label>
+
+                    <div class="form-group">
+                        <label for="price" title="Precio del producto">
+                            <input type="text" th:value="${product.price}" id="price" name="price" />
+                        </label>
+
+                        <label for="stock" title="Existencias del producto">
+                            <input type="text" th:value="${product.stock}" id="stock" name="stock" />
+                        </label>
+                    </div>
+
+                    <div class="form-group btn-container">
+                        <button class="button primary" type="submit">Guardar</button>
+                        <a th:href="@{/products}" class="button danger">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <script th:src="@{/products/js/edit.js}"></script>
+    </div>
+</html>

@@ -1,0 +1,92 @@
+
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/products/css/products.css}" />
+    <title>Productos</title>
+</head>
+<div layout:fragment="content">
+    <div id="modal-background">
+        <article id="modal-delete">
+            <button id="close-btn">
+                <svg
+                        class="icon-close"
+                        focusable="false"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                >
+                    <path
+                            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    ></path>
+                </svg>
+            </button>
+            <h3 class="title">¿Estas seguro?</h3>
+            <p class="message">Este producto sera borrado permanentemente</p>
+
+            <form>
+                <input type="hidden">
+                <button type="submit" class="button primary confirm-btn">Aceptar</button>
+            </form>
+        </article>
+    </div>
+
+    <section class="section-title">
+        <h3>Lista de productos</h3>
+        <a th:href="@{/products/create}">Agregar</a>
+    </section>
+    <section class="section-products">
+        <ul class="products-list">
+            <li class="product-card" th:each="product : ${products}">
+                <figure class="img-container" title="Ver detalle">
+                    <a
+                            th:href="@{/products/edit/{id}(id=${product.id})}"
+                            class="details-link"
+                            aria-label="Ver detalle del producto"
+                    ></a>
+                    <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg6kEVPwep5Xls8KBfg6Ja7Oi2whjPUwMIjA&s"
+                            alt="${product.name}"
+                    />
+                </figure>
+
+                <footer>
+                    <h4 class="title" th:text="${product.name}"></h4>
+                    <p class="description" th:text="${product.description}">
+
+                    </p>
+
+                    <div class="product-footer">
+                        <strong class="price" th:text="${product.price}">$</strong>
+
+                        <a class="delete-btn" th:attr="data-id=${product.id}" aria-label="Borrar producto">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="icon-trash"
+                            >
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M4 7l16 0" />
+                                <path d="M10 11l0 6" />
+                                <path d="M14 11l0 6" />
+                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg>
+                        </a>
+                    </div>
+                </footer>
+            </li>
+        </ul>
+    </section>
+
+    <script th:src="@{/products/js/index.js}"></script>
+</div>
+
+</html>

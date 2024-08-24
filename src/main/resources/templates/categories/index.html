@@ -1,0 +1,83 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout">
+
+<head>
+    <title>Categorias</title>
+</head>
+
+<div layout:fragment="content">
+
+    <section class="section-title">
+        <h2>Listado de categorias</h2>
+    </section>
+
+    <section  class="table-section">
+        <header class="table-header">
+            <div class="input-search">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon-search"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                </svg>
+                <input type="text" placeholder="Buscar.." autocomplete="off" />
+            </div>
+        </header>
+
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="select-all-rows"></th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Lead Manage</th>
+                    <th>Phone</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td>#790841</td>
+                    <td>Joseph William</td>
+                    <td>Burlington Resources Inc.</td>
+                    <td>(418) 974-8880</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>#790841</td>
+                    <td>Joseph William</td>
+                    <td>Burlington Resources Inc.</td>
+                    <td>(418) 974-8880</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>#790841</td>
+                    <td>Joseph William</td>
+                    <td>Burlington Resources Inc.</td>
+                    <td>(418) 974-8880</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>#790841</td>
+                    <td>Joseph William</td>
+                    <td>Burlington Resources Inc.</td>
+                    <td>(418) 974-8880</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="table-footer"></footer>
+    </section>
+</div>
