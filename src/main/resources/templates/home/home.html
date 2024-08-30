@@ -1,0 +1,260 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/layout/css/dashboard.css}" />
+    <title>Home</title>
+</head>
+<body layout:fragment="content">
+
+<section class="dashboard">
+    <section class="cards-section">
+        <div class="cards-medium">
+            <article class="card-medium" style="--color-balls: rgb(101, 31, 255)">
+                <div class="card-container">
+          <span class="card-icon">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.25"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+              <path
+                      d="M13.867 9.75c-.246 -.48 -.708 -.769 -1.2 -.75h-1.334c-.736 0 -1.333 .67 -1.333 1.5c0 .827 .597 1.499 1.333 1.499h1.334c.736 0 1.333 .671 1.333 1.5c0 .828 -.597 1.499 -1.333 1.499h-1.334c-.492 .019 -.954 -.27 -1.2 -.75"
+              />
+              <path d="M12 7v2" />
+              <path d="M12 15v2" />
+            </svg>
+          </span>
+                    <h3 class="earning">$500.00</h3>
+                    <p>Total de ingresos</p>
+                </div>
+            </article>
+
+            <article class="card-medium" style="--color-balls: rgb(30, 136, 229)">
+                <div class="card-container">
+          <span class="card-icon">
+            <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.25"
+            >
+              <path
+                      d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3m7 17H5V8h14zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3"
+              ></path>
+            </svg>
+          </span>
+                    <h3 class="earning">50</h3>
+                    <p>Total de ventas</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="cards-small">
+            <article class="card-small" style="--color-balls: rgb(144, 202, 249)">
+        <span class="card-icon">
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path
+                    d="M13.867 9.75c-.246 -.48 -.708 -.769 -1.2 -.75h-1.334c-.736 0 -1.333 .67 -1.333 1.5c0 .827 .597 1.499 1.333 1.499h1.334c.736 0 1.333 .671 1.333 1.5c0 .828 -.597 1.499 -1.333 1.499h-1.334c-.492 .019 -.954 -.27 -1.2 -.75"
+            />
+            <path d="M12 7v2" />
+            <path d="M12 15v2" />
+          </svg>
+        </span>
+                <div class="card-container">
+                    <h3 class="earning">$203K</h3>
+                    <p>Total de ingresos</p>
+                </div>
+            </article>
+
+            <article class="card-small" style="--color-balls: rgb(255, 193, 7)">
+        <span class="card-icon">
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--color-balls, currentColor)"
+                  stroke-width="1.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path
+                    d="M13.867 9.75c-.246 -.48 -.708 -.769 -1.2 -.75h-1.334c-.736 0 -1.333 .67 -1.333 1.5c0 .827 .597 1.499 1.333 1.499h1.334c.736 0 1.333 .671 1.333 1.5c0 .828 -.597 1.499 -1.333 1.499h-1.334c-.492 .019 -.954 -.27 -1.2 -.75"
+            />
+            <path d="M12 7v2" />
+            <path d="M12 15v2" />
+          </svg>
+        </span>
+                <div class="card-container">
+                    <h3 class="earning">$205K</h3>
+                    <p>Total de ingresos</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="analytics-section">
+        <article class="card">
+            <header>
+                <div>
+                    <p>Total de ingresos</p>
+                    <h3>$500.00</h3>
+                </div>
+            </header>
+            <canvas id="bar-chart"></canvas>
+        </article>
+
+        <article class="card">
+            <canvas id="doughnut-chart"></canvas>
+        </article>
+    </section>
+</section>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const colors = {
+      purple: "rgba(124, 77, 255, 0.85)", // Púrpura
+      skyBlue: "rgba(100, 181, 246, 0.85)", // Azul cielo
+      mediumBlue: "rgba(30, 136, 229, 0.85)", // Azul medio
+      lightBlue: "rgba(144, 202, 249, 0.85)", // Azul claro
+      royalBlue: "rgba(21, 101, 192, 0.85)", // Azul real
+      deepPurple: "rgba(103, 58, 183, 0.85)", // Púrpura oscuro
+    };
+
+    // Bar chart
+    const DATA_COUNT = 12;
+    const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 30 };
+
+    const barLabels = [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic",
+    ];
+    const barData = {
+      labels: barLabels,
+      datasets: [
+        {
+          label: "Investment",
+          data: [65, 59, 80, 81, 56, 55, 40, 2, 40, 100, 11, 12],
+          backgroundColor: colors.skyBlue,
+          stack: "Stack 0",
+        },
+        {
+          label: "Loss",
+          data: [65, 59, 80, 81, 90, 55, 40, 2, 40, 100, 71, 12],
+          backgroundColor: colors.mediumBlue,
+          stack: "Stack 0",
+        },
+        {
+          label: "Profit",
+          data: [65, 59, 80, 71, 56, 55, 40, 2, 40, 100, 31, 12],
+          backgroundColor: colors.purple,
+          stack: "Stack 0",
+        },
+      ],
+    };
+
+    const barConfig = {
+      type: "bar",
+      data: barData,
+      options: {
+        plugins: {
+          title: {
+            display: false,
+            text: "",
+          },
+        },
+        responsive: true,
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          x: {
+            stacked: true,
+          },
+          y: {
+            stacked: true,
+          },
+        },
+      },
+    };
+
+    const barCtx = document.getElementById("bar-chart");
+
+    const barChart = new Chart(barCtx, {
+      type: barConfig.type,
+      data: barConfig.data,
+      options: barConfig.options,
+    });
+
+    // Doughnut chart
+    const doughnutData = {
+      labels: ["Producto A", "Producto B", "Producto C"],
+      datasets: [
+        {
+          label: "",
+          data: [300, 50, 100],
+          backgroundColor: [
+            colors.deepPurple,
+            colors.lightBlue,
+            colors.royalBlue,
+          ],
+          hoverOffset: 4,
+          borderWidth: 0,
+          offset: 10,
+        },
+      ],
+    };
+
+    const doughnutConfig = {
+      type: "doughnut",
+      data: doughnutData,
+    };
+
+    const doughnutCtx = document.getElementById("doughnut-chart");
+
+    const doughnutChart = new Chart(doughnutCtx, {
+      type: doughnutConfig.type,
+      data: doughnutConfig.data,
+      options: doughnutConfig.options,
+    });
+</script>
+
+</body>
+</html>

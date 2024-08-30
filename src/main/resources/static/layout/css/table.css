@@ -4,6 +4,13 @@ table {
   overflow: auto;
 }
 
+.search {
+background: transparent;
+    color: red;
+    border-radius: 15px;
+    padding: 12px;
+}
+
 thead {
   color: var(--color-text-tertiary);
 }
@@ -47,6 +54,22 @@ td {
         background: transparent;
       }
     }
+  }
+
+  & .table-footer {
+        padding: 8px 12px 12px;
+        color: var(--color-text-primary);
+
+        & .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+
+            & a:target {
+                outline: 1px solid var(--color-text-primary);
+            }
+        }
   }
 }
 

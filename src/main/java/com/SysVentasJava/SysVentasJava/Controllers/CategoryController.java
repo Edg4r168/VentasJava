@@ -25,7 +25,7 @@ public class CategoryController {
     @GetMapping
     public String index(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1) - 1;
-        int pageSize = size.orElse(5);
+        int pageSize = size.orElse(4);
         Pageable pageable = PageRequest.of(currentPage, pageSize);
         Page<Category> categories = _categoryService.findAllPaginated(pageable);
         model.addAttribute("categories", categories);
@@ -59,12 +59,6 @@ public class CategoryController {
         return "categories/create";
     }
 
-    @GetMapping("/details/{id}")
-    public String details(@PathVariable("id") Integer id, Model model){
-        Category category = _categoryService.findById(id).get();
-        model.addAttribute("categories",category);
-        return "categories/details";
-    }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Integer id, Model model){
@@ -74,16 +68,12 @@ public class CategoryController {
     }
 
     @GetMapping("/remove/{id}")
-    public String remove(@PathVariable("id") Integer id, Model model){
+    public String remove(@PathVariable("id") Integer id, RedirectAttributes attributes){
         Category category = _categoryService.findById(id).get();
-        model.addAttribute("category",category);
-        return "categories/delete";
-    }
 
-    @PostMapping("/delete")
-    public String delete(Category category, RedirectAttributes attributes){
         _categoryService.deleteById(category.getId());
         attributes.addFlashAttribute("msg","Categoria eliminada correctamente");
+
         return "redirect:/categories";
     }
 }

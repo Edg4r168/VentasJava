@@ -1,0 +1,38 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/layout/css/form.css}" />
+    <title>Editar categoria</title>
+</head>
+<body layout:fragment="content">
+<h3 class="section-title">Editar categoria</h3>
+
+<section class="create-product">
+    <form th:action="@{/categories/save}" th:object="${category}" method="post">
+        <div class="fields-container">
+            <label for="name">
+                <small>Nombre</small>
+                <input type="text" th:value="${category.name}" name="name" id="name" />
+            </label>
+
+        </div>
+
+        <button>Guardar</button>
+
+    </form>
+</section>
+
+<script>
+    const $file = document.getElementById("file-upload");
+    const $nameImage = document.getElementById("name-image");
+
+    $file.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      console.log({ file });
+      $nameImage.textContent = file.name;
+    });
+</script>
+
+</body>
+</html>

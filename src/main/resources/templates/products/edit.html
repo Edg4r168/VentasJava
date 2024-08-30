@@ -16,8 +16,8 @@
                 <div class="image-container">
                     <img
                             id="preview"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg6kEVPwep5Xls8KBfg6Ja7Oi2whjPUwMIjA&s"
-                            alt="Image Preview"
+                            th:src="${product.urlImagen}"
+                            th:alt="${product.name}"
                     />
 
                     <label for="file-upload" class="image-upload">
@@ -57,6 +57,10 @@
                             <input type="text" th:value="${product.stock}" id="stock" name="stock" />
                         </label>
                     </div>
+
+                    <label for="urlImagen">
+                        <input type="url" id="urlImagen" name="urlImagen" th:value="${product.urlImagen}" />
+                    </label>
 
                     <div class="form-group btn-container">
                         <button class="button primary" type="submit">Guardar</button>

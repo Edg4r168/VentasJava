@@ -18,7 +18,7 @@ public class Product {
 
     private int stock;
 
-    private String urlImage;
+    private String urlImagen;
 
     private String nameImage;
 
@@ -60,12 +60,12 @@ public class Product {
         this.stock = stock;
     }
 
-    public String getUrlImage() {
-        return urlImage;
+    public String getUrlImagen() {
+        return urlImagen;
     }
 
-    public void setUrlImage(String urlImage) {
-        this.urlImage = urlImage;
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 
     public String getNameImage() {

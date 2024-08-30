@@ -17,11 +17,11 @@ public class DatabaseWebSecurity {
     public UserDetailsManager customUsers(DataSource dataSource) {
         JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
 
-        users.setUsersByUsernameQuery("select username, password, status from usuarios where username = ?");
-        users.setAuthoritiesByUsernameQuery("select u.username, r.nombre from usuario_rol ur  " +
+        users.setUsersByUsernameQuery("select login, clave, status from usuarios where login = ?");
+        users.setAuthoritiesByUsernameQuery("select u.login, r.nombre from usuario_rol ur  " +
                 "inner join usuarios u on u.id = ur.usuario_id " +
                 "inner join roles r on r.id = ur.rol_id " +
-                "where u.username = ?");
+                "where u.login = ?");
 
         return users;
     }
@@ -38,4 +38,5 @@ public class DatabaseWebSecurity {
 
         return http.build();
     }
+
 }

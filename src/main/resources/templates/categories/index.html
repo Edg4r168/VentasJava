@@ -1,11 +1,53 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="/layouts/_mainLayout">
+      layout:decorate="/layouts/_mainLayout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
+    <link rel="stylesheet" th:href="@{/layout/css/table.css}" />
+    <link rel="stylesheet" th:href="@{/layout/css/modal.css}" />
     <title>Categorias</title>
 </head>
 
 <div layout:fragment="content">
+    <script th:if="${msg != null}">
+        /*swal({
+            title: "Confirmación",
+            text: '[[ ${msg} ]]',
+            icon: "success"
+        })*/
+    </script>
+    <script th:if="${error != null}">
+        /*swal({
+            title: "Error",
+            text: '[[ ${error} ]]',
+            icon: "error"
+        })*/
+    </script>
+
+    <div id="modal-background">
+        <article id="modal-delete">
+            <button id="close-btn">
+                <svg
+                        class="icon-close"
+                        focusable="false"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                >
+                    <path
+                            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    ></path>
+                </svg>
+            </button>
+            <h3 class="title">¿Estas seguro?</h3>
+            <p class="message">Este producto sera borrado permanentemente</p>
+
+            <form>
+                <input type="hidden">
+                <button type="submit" class="button primary confirm-btn">Aceptar</button>
+            </form>
+        </article>
+    </div>
 
     <section class="section-title">
         <h2>Listado de categorias</h2>
@@ -30,54 +72,50 @@
                     <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
                     <path d="M21 21l-6 -6" />
                 </svg>
-                <input type="text" placeholder="Buscar.." autocomplete="off" />
+                <input type="text" id="input-search" placeholder="Buscar.." autocomplete="off" />
             </div>
+
+            <select id="searchBy" class="search">
+                <option value="0">Id</option>
+                <option value="1">Nombre</option>
+            </select>
+
+            <a class="button primary" th:href="@{/categories/create}">Agregar</a>
         </header>
 
         <div class="table-wrapper">
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="select-all-rows"></th>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Lead Manage</th>
-                    <th>Phone</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td></td>
-                    <td>#790841</td>
-                    <td>Joseph William</td>
-                    <td>Burlington Resources Inc.</td>
-                    <td>(418) 974-8880</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>#790841</td>
-                    <td>Joseph William</td>
-                    <td>Burlington Resources Inc.</td>
-                    <td>(418) 974-8880</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>#790841</td>
-                    <td>Joseph William</td>
-                    <td>Burlington Resources Inc.</td>
-                    <td>(418) 974-8880</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>#790841</td>
-                    <td>Joseph William</td>
-                    <td>Burlington Resources Inc.</td>
-                    <td>(418) 974-8880</td>
+                <tr th:each="category : ${categories}">
+                    <td th:text="${category.id}"></td>
+                    <td th:text="${category.name}"></td>
+                    <td>
+                        <a class="button warning" th:href="@{/categories/edit/{id}(id=${category.id})}">Editar</a>
+                        <a class=" button danger delete-btn" th:data-url="@{/categories/remove/{id}(id=${category.id})}">Borrar</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
 
-        <footer class="table-footer"></footer>
+        <footer class="table-footer">
+            <nav class="">
+                <ul class="pagination">
+                    <li class="page-item" th:each="page : ${pageNumber}">
+                        <a class="button primary" th:href="@{|/categories?page=${page}|}" th:text="${page}"></a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
     </section>
+
+    <script th:src="@{/layout/js/deleteByModal.js}"></script>
+    <script th:src="@{/categories/js/search.js}"></script>
 </div>

@@ -3,6 +3,7 @@
       layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" th:href="@{/products/css/products.css}" />
+    <link rel="stylesheet" th:href="@{/layout/css/modal.css}" />
     <title>Productos</title>
 </head>
 <div layout:fragment="content">
@@ -33,9 +34,30 @@
 
     <section class="section-title">
         <h3>Lista de productos</h3>
-        <a th:href="@{/products/create}">Agregar</a>
+        <a class="button primary" th:href="@{/products/create}">Agregar</a>
     </section>
     <section class="section-products">
+        <header>
+            <div class="input-search">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon-search"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                </svg>
+                <input type="text" id="input-search" placeholder="Buscar.." autocomplete="off" />
+            </div>
+        </header>
         <ul class="products-list">
             <li class="product-card" th:each="product : ${products}">
                 <figure class="img-container" title="Ver detalle">
@@ -45,8 +67,8 @@
                             aria-label="Ver detalle del producto"
                     ></a>
                     <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg6kEVPwep5Xls8KBfg6Ja7Oi2whjPUwMIjA&s"
-                            alt="${product.name}"
+                            th:src="${product.urlImagen}"
+                            th:alt="${product.name}"
                     />
                 </figure>
 
@@ -59,7 +81,7 @@
                     <div class="product-footer">
                         <strong class="price" th:text="${product.price}">$</strong>
 
-                        <a class="delete-btn" th:attr="data-id=${product.id}" aria-label="Borrar producto">
+                        <a class="delete-btn" th:data-url="@{/products/remove/{id}(id=${product.id})}" aria-label="Borrar producto">
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -86,7 +108,8 @@
         </ul>
     </section>
 
-    <script th:src="@{/products/js/index.js}"></script>
+    <script th:src="@{/layout/js/deleteByModal.js}"></script>
+    <script th:src="@{/products/js/search.js}"></script>
 </div>
 
 </html>

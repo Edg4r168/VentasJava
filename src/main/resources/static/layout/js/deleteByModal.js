@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function ()
 
         $madalContainer.style.display = "flex";
         const form = $madalContainer.querySelector("form")
-        form.action = `/products/remove/${btn.dataset?.id}`
+        form.action = `${btn.dataset?.url}`
       });
     });
 

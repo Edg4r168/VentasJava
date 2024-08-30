@@ -28,7 +28,7 @@ public class ProductController {
     @GetMapping
     public String index(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1) - 1;
-        int pageSize = size.orElse(5);
+        int pageSize = size.orElse(20);
         Pageable pageable = PageRequest.of(currentPage, pageSize);
         Page<Product> products = _productService.findAllPaginated(pageable);
         model.addAttribute("products", products);

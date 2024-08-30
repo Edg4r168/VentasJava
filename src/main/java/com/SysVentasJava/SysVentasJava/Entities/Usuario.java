@@ -14,10 +14,10 @@ public class Usuario {
     private Integer id;
 
     @NotBlank(message = "El nombre de usuario es requerido")
-    private String username;
+    private String login;
 
     @NotBlank(message = "La contraseña es requerido")
-    private String password;
+    private String clave;
 
     private int status;
 
@@ -36,20 +36,20 @@ public class Usuario {
         this.id = id;
     }
 
-    public @NotBlank(message = "El nombre de usuario es requerido") String getUsername() {
-        return username;
+    public @NotBlank(message = "El nombre de usuario es requerido") String getLogin() {
+        return login;
     }
 
-    public void setUsername(@NotBlank(message = "El nombre de usuario es requerido") String username) {
-        this.username = username;
+    public void setLogin(@NotBlank(message = "El nombre de usuario es requerido") String login) {
+        this.login = login;
     }
 
-    public @NotBlank(message = "La contraseña es requerido") String getPassword() {
-        return password;
+    public @NotBlank(message = "La contraseña es requerido") String getClave() {
+        return clave;
     }
 
-    public void setPassword(@NotBlank(message = "La contraseña es requerido") String password) {
-        this.password = password;
+    public void setClave(@NotBlank(message = "La contraseña es requerido") String clave) {
+        this.clave = clave;
     }
 
     public int getStatus() {
